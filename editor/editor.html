@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编辑文章</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
+        integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/@wangeditor/editor@latest/dist/css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
+        integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
+        crossorigin="anonymous"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #box {
+            position: relative;
+        }
+
+        #container {
+            height: calc(100% - 40px);
+            background-color: rgb(245, 245, 245);
+            overflow-y: auto;
+            position: relative;
+        }
+
+        #container {
+            padding-top: 30px;
+            background-color: #eee;
+        }
+
+        /* #mdui-title-bar {
+            position: fixed;
+        }
+
+        .editor-toolbar-container {
+            position: fixed;
+            width: 100%;
+        } */
+
+        .w-e-toolbar {
+            justify-content: center;
+        }
+
+        #editor-container {
+            height: 100%;
+            width: 850px;
+            margin: 0 auto 150px auto;
+            background-color: #fff;
+            padding: 20px 50px 50px 50px;
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 2px 10px rgb(0 0 0 / 12%);
+        }
+
+        #editor-text-area {
+            min-height: 900px;
+            margin-top: 20px;
+            height: 400px;
+        }
+
+        #title-container {
+            padding: 20px 0;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        #title-container input {
+            font-size: 30px;
+            border: 0;
+            outline: none;
+            width: 100%;
+            line-height: 1;
+        }
+
+        .fake-textarea {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class=".mdui-appbar-with-toolbar mdui-theme-primary-blue-grey" id="mdui-title-bar">
+    <div id="box">
+        <div class="mdui-appbar">
+            <div class="mdui-toolbar mdui-color-theme">
+                <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+                <a href="javascript:;" class="mdui-typo-headline">磅礴新闻网管理系统</a>
+                <a href="javascript:;" class="mdui-typo-title">编辑文章</a>
+                <div class="mdui-toolbar-spacer"></div>
+                <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple"><i
+                        class="mdui-icon material-icons">save</i></a>
+            </div>
+        </div>
+
+        <div id="editor-toolbar-container">
+            <div id="toolbar-container"></div>
+        </div>
+        <div id="container">
+            <div id="editor-container">
+                <div id="title-container">
+                    <input type="text" name="article-title" placeholder="请输入标题">
+                </div>
+                <div id="editor-text-area"></div>
+            </div>
+        </div>
+        <!-- 1是json -->
+        <textarea id="textarea-1" class="fake-textarea"></textarea>
+        <!-- 2是html -->
+        <textarea id="textarea-2" class="fake-textarea"></textarea>
+
+        <script src="https://cdn.jsdelivr.net/npm/@wangeditor/editor@latest/dist/index.min.js"></script>
+        <script>
+            const wangEditor = window.wangEditor; // 全局变量
+            const editorConfig = { MENU_CONF: {} };
+            editorConfig.placeholder = '请输入内容';
+            editorConfig.onChange = (editor) => {
+                // 当编辑器选区、内容变化时，即触发
+                console.log('content', editor.children)
+                console.log('html', editor.getHtml())
+            };
+            editorConfig.scroll = false // 禁止编辑器滚动
+
+            // 创建编辑器
+            const editor = wangEditor.createEditor({
+                selector: '#editor-text-area',
+                content: window.content1,
+                config: editorConfig,
+                content: [], // 默认内容，下文有解释
+                mode: 'default' // 或者 'simple' ，下文有解释
+            });
+
+            // 创建工具栏
+            const toolbar = wangEditor.createToolbar({
+                editor,
+                selector: '#toolbar-container',
+                mode: 'default', // 或者 'simple' ，下文有解释
+                config: {
+                    excludeKeys: 'fullScreen'
+                }
+            });
+
+            // 点击空白处 focus 编辑器
+            document.getElementById('editor-text-area').addEventListener('click', e => {
+                if (e.target.id === 'editor-text-area') {
+                    editor.blur()
+                    editor.focus(true) // focus 到末尾
+                }
+            });
+
+            editorConfig.onChange = (editor) => {
+                const content = editor.children
+                const contentStr = JSON.stringify(content)
+                document.getElementById('textarea-1').innerHTML = contentStr
+
+                const html = editor.getHtml()
+                document.getElementById('textarea-2').innerHTML = html
+            }
+        </script>
+    </div>
+</body>
+
+</html>
