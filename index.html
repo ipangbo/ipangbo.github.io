@@ -57,10 +57,14 @@
         .core {
             width: 1200px;
             height: 100%;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .header .core {
             display: flex;
             position: relative;
             align-items: center;
-            margin: 0 auto;
         }
 
         .header-logo {
@@ -219,6 +223,103 @@
         }
 
         /* 以上是头部的css */
+
+        #content-core {
+            margin-top: 40px;
+        }
+
+        .news-box {
+            width: 600px;
+        }
+
+        .news-box-header {
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 10px 15px 10px;
+
+            border-bottom: 1px solid #bbb;
+        }
+
+        .news-box-header>i {
+            color: #1e3c72;
+            font-size: 50px;
+            margin-right: 5px;
+
+        }
+
+        #compsci-news-label {
+            font-size: 25px;
+        }
+
+        .news-box-header a {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background-color: #1e3c72;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: background-color .3s;
+        }
+
+        .news-box-header a:hover {
+            background-color: #1a325e;
+        }
+
+        .news-box-content {
+            padding: 10px;
+        }
+
+        .news-box-content ul {
+            list-style: none;
+        }
+
+        .news-box-content ul li {
+            display: flex;
+            position: relative;
+            align-items: center;
+            padding: 15px 1px;
+            width: 100%;
+            font-size: 17px;
+        }
+
+        .news-box-content ul li::before {
+            content: "";
+            display: inline-block;
+            background-color: #aaa;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 5px;
+            transition: background-color .3s;
+        }
+
+        .news-box-content ul li>a {
+            display: inline-block;
+            max-width: 480px;
+            color: #111;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 10px;
+            transition: color .3s;
+        }
+
+        .news-box-content ul li>span {
+            color: #aaa;
+            position: absolute;
+            right: 0;
+        }
+
+        .news-box-content ul li:hover::before {
+            background-color: #1a325e;
+        }
+
+        .news-box-content ul li:hover a {
+            color: #1a325e;
+        }
     </style>
 </head>
 
@@ -296,45 +397,80 @@
     </div>
     <!-- 以上是头部的html -->
 
-    <div class="carousel">
-        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <!-- Points -->
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
-                    aria-label="Slide 4"></button>
+    <div class="content-box">
+        <div class="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <!-- Points -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                </div>
+                <!-- Images -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/Carousel20211023shuangjiang.gif" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/Carousel20211107lidong.gif" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/Carouselmmexport1636790404614.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/Carousel20211122xiaoxue.gif" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <!-- Controller -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <!-- Images -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="images/Carousel20211023shuangjiang.gif" class="d-block w-100" alt="...">
+        </div>
+        <div class="core" id="content-core">
+            <div class="news-box">
+                <div class="news-box-header">
+                    <i class="mdui-icon material-icons">fiber_new</i>
+                    <span id="compsci-news-label">计科新闻</span>
+                    <span><a href="news.jsp">进入新闻网</a></span>
                 </div>
-                <div class="carousel-item">
-                    <img src="images/Carousel20211107lidong.gif" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/Carouselmmexport1636790404614.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/Carousel20211122xiaoxue.gif" class="d-block w-100" alt="...">
+                <div class="news-box-content">
+                    <ul>
+                        <li>
+                            <a href="news/article?aid=1">关于这篇文章的这个标题这件事是一个公告</a>
+                            <span>2021-11-24</span>
+                        </li>
+                        <li>
+                            <a href="news/article?aid=1">关于这篇文章的这个标题这件事是一个公告加长加长加长加长加长加长加长加长加长加长加长加长</a>
+                            <span>2021-11-24</span>
+                        </li>
+                        <li>
+                            <a href="news/article?aid=1">关于这篇文章的这个标题这件事是一个公告</a>
+                            <span>2021-11-24</span>
+                        </li>
+                        <li>
+                            <a href="news/article?aid=1">关于这篇文章的这个标题这件事是一个公告</a>
+                            <span>2021-11-24</span>
+                        </li>
+                        <li>
+                            <a href="news/article?aid=1">关于这篇文章的这个标题这件事是一个公告</a>
+                            <span>2021-11-24</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <!-- Controller -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
     </div>
 
