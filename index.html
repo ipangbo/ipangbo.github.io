@@ -226,33 +226,39 @@
 
         #content-core {
             margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
         }
 
-        .news-box {
+        .model-box {
             width: 600px;
         }
 
-        .news-box-header {
+        .model-box-header {
             position: relative;
             display: flex;
             align-items: flex-end;
             padding: 0 10px 15px 10px;
-
-            border-bottom: 1px solid #bbb;
         }
 
-        .news-box-header>i {
+        .horizon {
+            width: 590px;
+            border-bottom: 1px solid #bbb;
+            margin-left: 10px;
+        }
+
+        .model-box-header>i {
             color: #1e3c72;
             font-size: 50px;
             margin-right: 5px;
 
         }
 
-        #compsci-news-label {
+        .model-label {
             font-size: 25px;
         }
 
-        .news-box-header a {
+        #news-more-button {
             position: absolute;
             right: 5px;
             top: 5px;
@@ -264,19 +270,19 @@
             transition: background-color .3s;
         }
 
-        .news-box-header a:hover {
+        .news-more-button:hover {
             background-color: #1a325e;
         }
 
-        .news-box-content {
+        .model-box-content {
             padding: 10px;
         }
 
-        .news-box-content ul {
+        .model-box-content ul {
             list-style: none;
         }
 
-        .news-box-content ul li {
+        .model-box-content ul li {
             display: flex;
             position: relative;
             align-items: center;
@@ -285,7 +291,8 @@
             font-size: 17px;
         }
 
-        .news-box-content ul li::before {
+        #news-box-content ul li::before,
+        #notice-box-content ul li::before {
             content: "";
             display: inline-block;
             background-color: #aaa;
@@ -296,9 +303,9 @@
             transition: background-color .3s;
         }
 
-        .news-box-content ul li>a {
+        .article-title {
             display: inline-block;
-            max-width: 480px;
+            max-width: 470px;
             color: #111;
             white-space: nowrap;
             overflow: hidden;
@@ -307,18 +314,171 @@
             transition: color .3s;
         }
 
-        .news-box-content ul li>span {
+        #notice-box .article-title {
+            max-width: 410px;
+        }
+
+        .model-box-content ul li>span {
             color: #aaa;
+            font-weight: 100;
+
+        }
+
+        .model-box-content ul li>.article-time {
             position: absolute;
             right: 0;
         }
 
-        .news-box-content ul li:hover::before {
+        .model-box-content ul li:hover::before {
             background-color: #1a325e;
         }
 
-        .news-box-content ul li:hover a {
+        .model-box-content ul li:hover a {
             color: #1a325e;
+        }
+
+        #intor-box-content {
+            position: relative;
+        }
+
+        #intro-pic {
+            float: left;
+            width: 300px;
+            height: 100%;
+            margin: 20px 10px 10px 10px;
+            border-radius: 5px;
+        }
+
+        #intro-pic~p {
+            line-height: 2em;
+            font-size: 16px;
+            padding: 10px 20px;
+            text-indent: 2em;
+        }
+
+        #intro-pic~a {
+            position: absolute;
+            right: 30px;
+            bottom: 40px;
+            transition: color .3s;
+        }
+
+        #intro-pic~a:hover {
+            color: #1a325e;
+        }
+
+        #content-box-2 {
+            margin-top: 1px;
+            padding-top: 1px;
+            background-color: rgb(248, 248, 248);
+        }
+
+        #notice-more-button {
+            position: absolute;
+            right: 15px;
+            top: 17px;
+            font-size: 15px;
+            transition: color .3s;
+        }
+
+        #notice-box .model-box-content ul li>span:first-child {
+            margin-right: 5px;
+            transition: color .3s;
+        }
+
+        #notice-box .model-box-content ul li:hover>span:first-child {
+            color: #1a325e;
+        }
+
+        #link-box-content {
+            padding: 10px 20px;
+        }
+
+        #link-box-content>ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+        }
+
+        #link-box-content>ul>a>li {
+            flex-direction: column;
+            justify-content: center;
+            width: 179px;
+            height: 130px;
+            margin-top: 5px;
+            color: white;
+            border-radius: 10px;
+        }
+
+        #link-box-content>ul>a:nth-child(1)>li {
+            background: #1e3c72;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #2a5298, #1e3c72);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #2a5298, #1e3c72);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        #link-box-content>ul>a:nth-child(2)>li {
+            background: #005C97;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #363795, #005C97);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #363795, #005C97);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        #link-box-content>ul>a:nth-child(3)>li {
+            background: #1e3c72;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #2a5298, #1e3c72);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #2a5298, #1e3c72);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        #link-box-content>ul>a:nth-child(4)>li {
+            background: #005C97;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #363795, #005C97);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #363795, #005C97);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+        }
+
+        #link-box-content>ul>a:nth-child(5)>li {
+            background: #1e3c72;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #2a5298, #1e3c72);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #2a5298, #1e3c72);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        #link-box-content>ul>a:nth-child(6)>li {
+            background: #005C97;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #363795, #005C97);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #363795, #005C97);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        #link-box-content>ul>a>li>i {
+            font-size: 65px;
+        }
+
+        #link-box-content>ul>a>li>.link-title {
+            font-size: 17px;
+            margin-top: 12px;
         }
     </style>
 </head>
@@ -397,7 +557,7 @@
     </div>
     <!-- 以上是头部的html -->
 
-    <div class="content-box">
+    <div id="content-box-1">
         <div class="carousel">
             <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <!-- Points -->
@@ -440,36 +600,140 @@
             </div>
         </div>
         <div class="core" id="content-core">
-            <div class="news-box">
-                <div class="news-box-header">
+            <div class="model-box">
+                <div class="model-box-header">
                     <i class="mdui-icon material-icons">fiber_new</i>
-                    <span id="compsci-news-label">计科新闻</span>
-                    <span><a href="news.jsp">进入新闻网</a></span>
+                    <span class="model-label">计科新闻</span>
+                    <span><a href="news.jsp" id="news-more-button">进入新闻网</a></span>
                 </div>
-                <div class="news-box-content">
+                <div class="horizon"></div>
+                <div class="model-box-content" id="news-box-content">
                     <ul>
                         <li>
-                            <a href="news/article?aid=1">关于这篇文章的这个标题这件事是一个公告</a>
-                            <span>2021-11-24</span>
+                            <a href="news/article?aid=1" class="article-title">关于组织收看《2017 年度 CCCV
+                                “心血管OCT易损斑块识别”人工智能专题竞赛》的通知</a>
+                            <span class="article-time">2021-11-24</span>
                         </li>
                         <li>
-                            <a href="news/article?aid=1">关于这篇文章的这个标题这件事是一个公告加长加长加长加长加长加长加长加长加长加长加长加长</a>
-                            <span>2021-11-24</span>
+                            <a href="news/article?aid=1" class="article-title">关于开除庞石薄等一名同学的通知</a>
+                            <span class="article-time">2021-11-24</span>
                         </li>
                         <li>
-                            <a href="news/article?aid=1">关于这篇文章的这个标题这件事是一个公告</a>
-                            <span>2021-11-24</span>
+                            <a href="news/article?aid=1" class="article-title">诚信考试，回家过年——计科专业严抓考试纪律，扎实把好育人关</a>
+                            <span class="article-time">2021-11-24</span>
                         </li>
                         <li>
-                            <a href="news/article?aid=1">关于这篇文章的这个标题这件事是一个公告</a>
-                            <span>2021-11-24</span>
+                            <a href="news/article?aid=1" class="article-title">计科专业党支部开展“以史为鉴”专题诚信教育活动</a>
+                            <span class="article-time">2021-11-24</span>
                         </li>
                         <li>
-                            <a href="news/article?aid=1">关于这篇文章的这个标题这件事是一个公告</a>
-                            <span>2021-11-24</span>
+                            <a href="news/article?aid=1" class="article-title">我专业2019级计科四班团支部荣获全国“先进团支部”称号</a>
+                            <span class="article-time">2021-11-24</span>
                         </li>
                     </ul>
                 </div>
+
+            </div>
+            <div class="model-box">
+                <div class="model-box-header">
+                    <i class="mdui-icon material-icons">memory</i>
+                    <span class="model-label">专业简介</span>
+                </div>
+                <div class="horizon"></div>
+                <div class="model-box-content" id="intor-box-content">
+                    <img src="images/intro.png" alt="专业介绍图片" id="intro-pic">
+                    <p>计算机科学与技术系始建于1988年的微机应用专业。1995年在原专业基础上建立了“计算机科学与技术系”。“十一五”期间计算机专业被批准为黑龙江省重点专业建设点和东北林业大学优势专业。2019年通过工程教育专业认证，同年评为黑龙江省一流专业建设点，
+                        2020年评为国家级一流本科专业建设点</p>
+                    <a href="major.jsp">>>查看更多</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content-box-2">
+        <div class="core" id="content-core">
+            <div class="model-box" id="notice-box">
+                <div class="model-box-header">
+                    <i class="mdui-icon material-icons">notifications</i>
+                    <span class="model-label">通知公告</span>
+                    <a href="notice.jsp" id="notice-more-button">>>查看更多</a>
+                </div>
+                <div class="horizon"></div>
+                <div class="model-box-content" id="notice-box-content">
+                    <ul>
+                        <li>
+                            <span>[教育教学]</span>
+                            <a href="news/article?aid=1" class="article-title">关于禁止校外外卖的通告</a>
+                            <span class="article-time">2021-11-24</span>
+                        </li>
+                        <li>
+                            <span>[教育教学]</span>
+                            <a href="news/article?aid=1" class="article-title">关于庞礴等14名预备党员同志转正的公示</a>
+                            <span class="article-time">2021-11-24</span>
+                        </li>
+                        <li>
+                            <span>[教育教学]</span>
+                            <a href="news/article?aid=1" class="article-title">《正告东北农业大学贴吧》</a>
+                            <span class="article-time">2021-11-24</span>
+                        </li>
+                        <li>
+                            <span>[教育教学]</span>
+                            <a href="news/article?aid=1" class="article-title">关于组织学生退出“林大集市”的通知</a>
+                            <span class="article-time">2021-11-24</span>
+                        </li>
+                        <li>
+                            <span>[教育教学]</span>
+                            <a href="news/article?aid=1" class="article-title">关于做好庞礴同学后勤保障工作的要求</a>
+                            <span class="article-time">2021-11-24</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="model-box">
+                <div class="model-box-header">
+                    <i class="mdui-icon material-icons">phonelink</i>
+                    <span class="model-label">快捷链接</span>
+                </div>
+                <div class="horizon"></div>
+                <div class="model-box-content" id="link-box-content">
+                    <ul><a href="https://ipangbo.cn" target="_blank">
+                            <li>
+                                <i class="mdui-icon material-icons">web</i>
+                                <div class="link-title">气势磅礴</div>
+                            </li>
+                        </a>
+                        <a href="https://web.ab-in.cn/test/index" target="_blank">
+                            <li>
+                                <i class="mdui-icon material-icons">supervisor_account</i>
+                                <div class="link-title">刘思远同学</div>
+                            </li>
+                        </a>
+                        <a href="http://123.57.27.150:8857/web-project-manager/" target="_blank">
+                            <li>
+                                <i class="mdui-icon material-icons">grade</i>
+                                <div class="link-title">课设平台</div>
+                            </li>
+                        </a>
+                        <a href="https://gitee.com/ipangbocn/web-course-project" target="_blank">
+                            <li>
+                                <i class="mdui-icon material-icons">settings_system_daydream</i>
+                                <div class="link-title">开源仓库</div>
+                            </li>
+                        </a>
+                        <a href="https://github.com/bwhyman/web-course" target="_blank">
+                            <li>
+                                <i class="mdui-icon material-icons">account_balance</i>
+                                <div class="link-title">在线课程</div>
+                            </li>
+                        </a>
+                        <a href="panel/" target="_blank">
+                            <li>
+                                <i class="mdui-icon material-icons">account_circle</i>
+                                <div class="link-title">投稿系统</div>
+                            </li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </div>
