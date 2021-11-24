@@ -106,7 +106,7 @@
 
         .menu a {
             padding: 15px 12px 5px;
-            transition: background .3s;
+            transition: background-color .3s;
         }
 
         .menu a:hover {
@@ -131,11 +131,15 @@
             height: 47px;
         }
 
-        .banner-list li {
+        .banner-list>li {
             margin: 0 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .banner-list li a {
+        .banner-list>li>a {
             display: block;
             color: #111;
             font-weight: 700;
@@ -143,11 +147,62 @@
             font-size: 18px;
             transition: background-color .2s;
             text-align: center;
+            width: 132px;
+            height: 47px;
         }
 
-        .banner-list li a:hover {
-            background-color: #bbb;
+        .banner-list>li>a:hover {
             color: #1e3c72;
+            background-color: #bbb;
+        }
+
+
+
+        .banner-list>li>ol {
+            position: absolute;
+            top: 47px;
+            list-style: none;
+            background-color: rgba(80, 80, 80, 0.6);
+            min-width: 132px;
+            transform: scaleY(0);
+            transform-origin: 50% 0;
+            transition: transform .1s;
+            transition-delay: .1s;
+            z-index: 2;
+
+        }
+
+        .banner-list>li:hover ol {
+            display: block;
+            transform: scaleY(1);
+        }
+
+        .banner-list>li>ol a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 15px;
+            text-align: center;
+            font-weight: 400;
+            transition: background-color .2s;
+            white-space: nowrap;
+        }
+
+        .banner-list>li>ol a:hover {
+            background-color: #1e3c72;
+        }
+
+        .banner-list>li:nth-child(1)>ol>li:nth-child(2) a:hover {
+            background-color: rgb(158, 0, 0);
+        }
+
+        #bgtest {
+            background-image: url("images/bgtest.png");
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 500px;
+            background-size: cover;
         }
     </style>
 </head>
@@ -224,6 +279,7 @@
             </div>
         </div>
     </div>
+    <div id="bgtest"></div>
 
 </body>
 

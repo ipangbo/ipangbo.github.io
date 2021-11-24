@@ -1,13 +1,343 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>东北林业大学计算机科学与技术</title>
-    <style></style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
+        integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw" crossorigin="anonymous" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <style>
+        @font-face {
+            font-family: 'SourceHanSerifCNBD';
+            src: url("../fonts/SourceHanSerifCN-Bold.otf");
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ol,
+        ul {
+            /* 去除bootstrap自带缩进 */
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .full-box-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .header {
+            height: 140px;
+            background: #1e3c72;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to bottom, #2a5298, #1e3c72);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom, #2a5298, #1e3c72);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        .core {
+            width: 1200px;
+            height: 100%;
+            display: flex;
+            position: relative;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .header-logo {
+            background-image: url("../images/nefu-logo.svg");
+            background-repeat: no-repeat;
+            width: 90px;
+            height: 90px;
+            margin-left: 30px;
+        }
+
+        .header-name {
+            background-image: url("../images/nefu-name-with-eng-white.svg");
+            background-repeat: no-repeat;
+            height: 60px;
+            width: 200px;
+            margin-left: 20px;
+        }
+
+        .major-name {
+            font-family: SourceHanSerifCNBD, serif;
+            display: block;
+            color: white;
+            font-size: 30px;
+            margin-left: 20px;
+        }
+
+        .slogan {
+            width: 184px;
+            height: 82px;
+            background-image: url("../images/slogan.png");
+            background-repeat: no-repeat;
+            margin-left: 130px;
+            background-size: cover;
+        }
+
+        ul.menu {
+            list-style: none;
+            display: flex;
+            position: absolute;
+            top: -10px;
+            right: 5px;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+            border-bottom: 1px solid white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        li.menu-button {
+            color: white;
+        }
+
+        ul.menu a:not(:last-child) {
+            border-right: 1px solid #999;
+        }
+
+        .menu a {
+            padding: 15px 12px 5px;
+            transition: background-color .3s;
+        }
+
+        .menu a:hover {
+            background: #56CCF2;
+
+        }
+
+        .banner {
+            background-color: #ddd;
+
+        }
+
+        #banner-core {
+            display: block;
+        }
+
+        .banner-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 47px;
+        }
+
+        .banner-list>li {
+            margin: 0 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .banner-list>li>a {
+            display: block;
+            color: #111;
+            font-weight: 700;
+            padding: 13px 30px;
+            font-size: 18px;
+            transition: background-color .2s;
+            text-align: center;
+            width: 132px;
+            height: 47px;
+        }
+
+        .banner-list>li>a:hover {
+            color: #1e3c72;
+            background-color: #bbb;
+        }
+
+
+
+        .banner-list>li>ol {
+            position: absolute;
+            top: 47px;
+            list-style: none;
+            background-color: rgba(80, 80, 80, 0.6);
+            min-width: 132px;
+            transform: scaleY(0);
+            transform-origin: 50% 0;
+            transition: transform .1s;
+            transition-delay: .1s;
+            z-index: 2;
+
+        }
+
+        .banner-list>li:hover ol {
+            display: block;
+            transform: scaleY(1);
+        }
+
+        .banner-list>li>ol a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 15px;
+            text-align: center;
+            font-weight: 400;
+            transition: background-color .2s;
+            white-space: nowrap;
+        }
+
+        .banner-list>li>ol a:hover {
+            background-color: #1e3c72;
+        }
+
+        .banner-list>li:nth-child(1)>ol>li:nth-child(2) a:hover {
+            background-color: rgb(158, 0, 0);
+        }
+
+        #bgtest {
+            background-image: url("images/bgtest.png");
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 500px;
+            background-size: cover;
+        }
+
+        /* 以上是头部的css */
+    </style>
 </head>
+
 <body>
-    
+    <div class="header-box">
+        <div class="header">
+            <div class="core" id="header-core">
+                <div class="header-logo"><a href="index.jsp" class="full-box-link"></a></div>
+                <div class="header-name"><a href="index.jsp" class="full-box-link"></a></div>
+                <div class="major-name">计算机科学与技术专业</div>
+                <div class="slogan"></div>
+                <ul class="menu">
+                    <a href="https://mail.nefu.edu.cn" target="_blank">
+                        <li class="menu-button"><i class="mdui-icon material-icons">mail</i></li>
+                    </a>
+                    <a href="panel/" target="_blank">
+                        <li class="menu-button"><i class="mdui-icon material-icons">account_circle</i></li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="core" id="banner-core">
+                <ul class="banner-list">
+                    <li>
+                        <a href="news.jsp">新闻中心</a>
+                        <ol>
+                            <li><a href="">综合新闻</a></li>
+                            <li><a href="">党团声音</a></li>
+                            <li><a href="">新媒精选</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="notice.jsp">通知公告</a>
+                        <ol>
+                            <li><a href="">教育教学</a></li>
+                            <li><a href="">学术动态</a></li>
+                            <li><a href="">后勤保障</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="major.jsp">专业介绍</a>
+                        <ol>
+                            <li><a href="">专业简介</a></li>
+                            <li><a href="">方向简介</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="teachers.jsp">教师队伍</a>
+                        <ol>
+                            <li><a href="">教授</a></li>
+                            <li><a href="">副教授</a></li>
+                            <li><a href="">讲师</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="labs.jsp">实验室</a>
+                        <ol>
+                            <li><a href="">923 创新实验室</a></li>
+                            <li><a href="">925 移动开发实验室</a></li>
+                            <li><a href="">999 天台实验室</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="job.jsp">就业指南</a>
+                        <ol>
+                            <li><a href="">招聘中心</a></li>
+                            <li><a href="">创新创业</a></li>
+                            <li><a href="">国际合作</a></li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 以上是头部的html -->
+
+    <div class="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <!-- Points -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <!-- Images -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/Carousel20211023shuangjiang.gif" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/Carousel20211107lidong.gif" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/Carouselmmexport1636790404614.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <!-- Controller -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+
+    <script>
+        var myCarousel = document.querySelector('#index-carousel')
+        var carousel = new bootstrap.Carousel(myCarousel)
+    </script>
 </body>
+
 </html>
