@@ -15,11 +15,6 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <style>
-        @font-face {
-            font-family: 'SourceHanSerifCNBD';
-            src: url("../fonts/SourceHanSerifCN-Bold.otf");
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -74,7 +69,7 @@
         }
 
         .header-logo {
-            background-image: url("../images/nefu-logo.svg");
+            background-image: url("./images/nefu-logo.svg");
             background-repeat: no-repeat;
             width: 90px;
             height: 90px;
@@ -90,10 +85,11 @@
         }
 
         .major-name {
-            font-family: SourceHanSerifCNBD, serif;
-            display: block;
-            color: white;
-            font-size: 30px;
+            background-image: url("images/compsciwhite.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: 300px;
+            height: 30px;
             margin-left: 20px;
         }
 
@@ -138,7 +134,7 @@
         }
 
         .banner {
-            background-color: #ddd;
+            background-color: #eee;
 
         }
 
@@ -230,7 +226,7 @@
 
         /* 以上是头部的css */
 
-        #content-core {
+        #content-box-1>.core {
             margin-top: 40px;
             display: flex;
             flex-wrap: wrap;
@@ -375,10 +371,14 @@
         }
 
         #content-box-2 {
-            margin-top: 1px;
-            padding-top: 1px;
             background-color: rgb(248, 248, 248);
+            padding-top: 40px;
         }
+
+        #content-box-2>.core {
+            display: flex;
+        }
+
 
         #notice-more-button {
             position: absolute;
@@ -487,6 +487,78 @@
             font-size: 17px;
             margin-top: 12px;
         }
+
+        #footer-box-1 {
+            height: 328px;
+            background-image: url("images/bluebg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        #footer-box-1>.core {
+            display: flex;
+            padding-top: 50px;
+            justify-content: space-between;
+        }
+
+        #footer-box-1>.core>.footer-logo {
+            height: 211px;
+            width: 306px;
+            background-image: url("images/footer_logo.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        #footer-box-1>.core>.contact:last-child {
+            margin-right: 50px;
+        }
+
+        #footer-box-1>.core>.contact dt {
+            margin-top: 30px;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        #footer-box-1>.core>.contact dd {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        #footer-box-1>.core>.contact dd i {
+            color: #1e3c72;
+            margin-right: 10px;
+        }
+
+        #footer-box-1>.core>.contact dd i+a {
+            color: #000;
+        }
+
+        #footer-box-1>.core>.contact dl .qr-code {
+            display: flex;
+        }
+
+        #footer-box-1>.core>.contact dl .qr-code img {
+            width: 115px;
+            margin-right: 15px;
+        }
+
+        #footer-box-2 {
+            background-color: #2d487c;
+        }
+
+        #footer-box-2>.core {
+            display: block;
+            text-align: center;
+            color: #fff;
+            height: 70px;
+            line-height: 70px;
+        }
+
+        #footer-box-2>.core a {
+            text-decoration: none;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -496,7 +568,7 @@
             <div class="core" id="header-core">
                 <div class="header-logo" title="东北林业大学计算机科学与技术专业"><a href="index.jsp" class="full-box-link"></a></div>
                 <div class="header-name" title="东北林业大学计算机科学与技术专业"><a href="index.jsp" class="full-box-link"></a></div>
-                <div class="major-name">计算机科学与技术专业</div>
+                <div class="major-name"></div>
                 <div class="slogan"></div>
                 <ul class="menu">
                     <a href="https://mail.nefu.edu.cn" target="_blank">
@@ -606,7 +678,7 @@
                 </button>
             </div>
         </div>
-        <div class="core" id="content-core">
+        <div class="core" id="content-core-1">
             <div class="model-box">
                 <div class="model-box-header">
                     <i class="mdui-icon material-icons">fiber_new</i>
@@ -657,7 +729,7 @@
         </div>
     </div>
     <div id="content-box-2">
-        <div class="core" id="content-core">
+        <div class="core" id="content-core-2">
             <div class="model-box" id="notice-box">
                 <div class="model-box-header">
                     <i class="mdui-icon material-icons">notifications</i>
@@ -738,10 +810,50 @@
                                 <i class="mdui-icon material-icons">account_circle</i>
                                 <div class="link-title">投稿系统</div>
                             </li>
+                        </a>
                     </ul>
                 </div>
 
             </div>
+        </div>
+    </div>
+    <div id="footer-box-1">
+        <div class="core">
+            <div class="footer-logo"></div>
+            <div class="contact">
+                <dl>
+                    <dt>联系方式</dt>
+                    <dd>
+                        <i class="mdui-icon material-icons">phone_in_talk</i>0451-82190346
+                    </dd>
+                    <dd>
+                        <i class="mdui-icon material-icons">email</i><a
+                            href="mailto:zsb@nefu.edu.cn">zsb@nefu.edu.cn</a>
+                    </dd>
+                    <dd>
+                        <i class="mdui-icon material-icons">location_on</i>黑龙江省哈尔滨市香坊区和兴路26号
+                    </dd>
+                </dl>
+            </div>
+            <div class="contact">
+                <dl>
+                    <dt>关注我们</dt>
+                    <dd class="qr-code">
+                        <img src="https://zhaosheng.nefu.edu.cn/images/change_doc/hb/code_gf.png" alt="东林二维码"
+                            title="东北林业大学公众号">
+                        <img src="https://zhaosheng.nefu.edu.cn/images/change_doc/hb/code_zb.png" alt="招生办二维码"
+                            title="东林招生微信公众号">
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+
+    </div>
+    <div id="footer-box-2">
+        <div class="core">
+            东北林业大学庞礴 &copy; 版权所有&nbsp; 中国&nbsp; 黑龙江哈尔滨市香坊区和兴路26号&nbsp; 邮编&nbsp; 150040&nbsp;
+            <a href="https://beian.miit.gov.cn/">皖ICP备2020021579号</a>
         </div>
     </div>
 

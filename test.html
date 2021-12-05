@@ -1,130 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>导航栏</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
 
-        .nav-main {
-            display: flex;
-            width: 60%;
-            height: 50px;
-            margin: auto;
-            background-color: #333;
-            flex-flow: row nowrap;
-            justify-content: space-around;
-            align-items: center;
-        }
+    .testimg {
+      width: 100%;
+      height: 100px;
+    }
 
-        .nav-nums {
-            width: 130px;
-            height: 50px;
-            line-height: 50px;
-            text-align: center;
-        }
-
-        .nav-nums:hover {
-            background-color: olivedrab;
-        }
-
-        .nav-nums>a {
-            color: white;
-            text-decoration: none;
-            font-weight: 800;
-        }
-
-        .nav-vr {
-            box-shadow: 1px 1px 10px #ccc;
-        }
-
-        .nav-vr>a {
-            width: 100px;
-            background: red;
-            color: royalblue;
-            text-decoration: none;
-        }
-
-        .nav-vr>a>li:hover {
-            background-color: #ccc;
-        }
-
-        .nav-nums li {
-            display: none;
-            list-style: none;
-            height: 40px;
-            line-height: 40px;
-        }
-
-        .nav-nums:hover li {
-            display: block;
-        }
-
-        ;
-        }
-    </style>
+    input {
+      border: none;
+      outline: none;
+    }
+  </style>
 </head>
 
 <body>
-
-    <div class="nav-main">
-        <div class="nav-nums"><a href="">中国</a>
-            <div class="nav-vr">
-                <a href="">
-                    <li>北京</li>
-                </a>
-                <a href="">
-                    <li>深圳</li>
-                </a>
-                <a href="">
-                    <li>上海</li>
-                </a>
-                <a href="">
-                    <li>广州</li>
-                </a>
-            </div>
-        </div>
-        <div class="nav-nums"><a href="">韩国</a>
-            <div class="nav-vr">
-                <a href="">
-                    <li>首尔</li>
-                </a>
-                <a href="">
-                    <li>仁川</li>
-                </a>
-                <a href="">
-                    <li>大田</li>
-                </a>
-                <a href="">
-                    <li>蔚山</li>
-                </a>
-            </div>
-        </div>
-        <div class="nav-nums"><a href="">美国</a>
-            <div class="nav-vr">
-                <a href="">
-                    <li>华盛顿</li>
-                </a>
-                <a href="">
-                    <li>旧金山</li>
-                </a>
-                <a href="">
-                    <li>纽约</li>
-                </a>
-                <a href="">
-                    <li>洛杉矶</li>
-                </a>
-                <a href="">
-                    <li>芝加哥</li>
-                </a>
-            </div>
-        </div>
-    </div>
-
+  <img src="images/bgtest.png" alt="" class="testimg" />
+  <!-- <input type="button" value="++" id="test-button" /> -->
+  <button id="test-button">++</button>
+  <img src="images/bgtest.png" alt="" class="testimg1" />
+  <input type="text" name="" id="" class="input-text" />
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $("#test-button").click(() => {
+      console.log(1);
+      $(".testimg").toggle(1000);
+    });
+  </script>
 </body>
 
 </html>
