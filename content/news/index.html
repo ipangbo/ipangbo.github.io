@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>东林计科新闻网</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
+        integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/newsindex.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* 解决手机显示不全的问题 */
+            min-width: 1200px;
+        }
+
+        ol,
+        ul {
+            /* 去除bootstrap自带缩进 */
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        .core {
+            width: 1200px;
+            height: 100%;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .background-image {
+            height: 300px;
+            width: 100%;
+            background-image: url("http://news.nefu.edu.cn/images/y-ban1.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .indicator {
+            width: 250px;
+            height: 150px;
+            background-color: rgba(35, 73, 179, 0.83);
+            position: absolute;
+            top: 195px;
+            text-align: center;
+            line-height: 150px;
+            font-size: 30px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .pos-bar {
+            height: 45px;
+            background-color: #ddd;
+        }
+
+        .pos-bar>.core>.pos {
+            line-height: 45px;
+            margin-left: 300px;
+        }
+
+        .pos-bar>.core>.pos a {
+            color: #000;
+            transition: color .3s;
+        }
+
+        .pos-bar>.core>.pos a:hover {
+            color: #1e3c72;
+            text-decoration: underline;
+        }
+
+        .content-box>.core {
+            display: flex;
+        }
+
+        .content-box .sidebar {
+            width: 250px;
+            background-color: #eee;
+            height: 100%;
+        }
+
+        .content-box .sidebar ul {
+            list-style: none;
+        }
+
+        .content-box .sidebar ul>li {
+            display: block;
+        }
+
+        .content-box .sidebar ul>li>a {
+            display: block;
+            padding: 25px;
+            color: #444;
+            font-weight: 700;
+            font-size: 20px;
+            text-align: center;
+            transition: all .1s;
+        }
+
+        .content-box .sidebar ul>li>a:hover {
+            color: #fff;
+            background-color: rgb(28, 55, 129);
+        }
+
+        .content-box .sidebar ul>li:nth-child(2)>a:hover {
+            background-color: rgb(158, 0, 0);
+        }
+
+        .content-box .article-box {
+            width: 950px;
+        }
+
+        .content-box .article-box>ul {
+            list-style: none;
+            padding: 15px 5px;
+        }
+
+        .content-box .article-box>ul>li {
+            padding: 15px 0 15px 15px;
+        }
+
+        .content-box .article-box>ul>li>.title {
+            display: block;
+            margin-bottom: 15px;
+            color: #1e3c72;
+            font-weight: 700;
+            font-size: 22px;
+            transition: color .3s;
+        }
+
+        .content-box .article-box>ul>li:hover .article-abstract {
+            color: #1e3c72;
+        }
+
+        .content-box .article-box>ul>li>.title:hover {
+            color: rgb(204, 133, 0);
+        }
+
+        .content-box .article-box>ul>li>.article-detail-box {
+            display: flex;
+        }
+
+        .content-box .article-box>ul>li>.article-detail-box>.article-abstract {
+            color: #555;
+            width: 815px;
+            font-size: 16px;
+            line-height: 25px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .date-indicator {
+            margin-top: -10px;
+            width: 90px;
+            height: 80px;
+            margin-left: 20px;
+        }
+
+        .date-indicator-day {
+            height: 50px;
+            background-color: #1e3c72;
+            line-height: 50px;
+            font-weight: 900;
+            color: #fff;
+            text-align: center;
+            font-size: 30px;
+            border-left: 1px solid #1e3c72;
+            border-top: 1px solid #1e3c72;
+            border-right: 1px solid #1e3c72;
+        }
+
+        .date-indicator-month-year {
+            height: 30px;
+            line-height: 30px;
+            color: #666;
+            text-align: center;
+            border-left: 1px solid #1e3c72;
+            border-bottom: 1px solid #1e3c72;
+            border-right: 1px solid #1e3c72;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-image">
+        <div class="core indicator-box">
+            <div class="indicator">
+                新闻网
+            </div>
+        </div>
+    </div>
+    <div class="pos-bar">
+        <div class="core">
+            <div class="pos">
+                您现在的位置：<a href="index.jsp">首页</a> >> 新闻网
+            </div>
+
+        </div>
+    </div>
+    <div class="content-box">
+        <div class="core">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="">综合新闻</a></li>
+                    <li><a href="">党团声音</a></li>
+                    <li><a href="">新媒精选</a></li>
+                </ul>
+            </div>
+            <div class="article-box">
+                <ul>
+                    <li>
+                        <a href="article?aid=1" class="title">关于这是一条新闻的通知的新闻</a>
+                        <div class="article-detail-box">
+                            <div class="article-abstract">
+                                为引导广大东林学子深入学习习近平总书记“七一”重要讲话精神，深刻领会和把握讲话的重大意义、丰富内涵、核心要义、实践要求，把学习成果转化为奋进新征程、建功新时代的实际行动，奥林学院指导中心在2021年10月9日星期六16:00于奥林学院401举办政治观摩会。为了响应疫情防控要求，除参演人员及工作人员到场外，另有将近300余人在线上一同参加本次活动。为引导广大东林学子深入学习习近平总书记“七一”重要讲话精神为引导广大东林学子深入学习习近平总书记“七一”重要讲话精神为引导广大东林学子深入学习习近平总书记“七一”重要讲话精神
+                            </div>
+                            <div class="date-indicator">
+                                <div class="date-indicator-day">08</div>
+                                <div class="date-indicator-month-year">2021-12</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="article?aid=1" class="title">关于这是一条新闻的通知的新闻</a>
+                        <div class="article-detail-box">
+                            <div class="article-abstract">
+                                为引导广大东林学子深入学习习近平总书记“七一”重要讲话精神，深刻领会和把握讲话的重大意义、丰富内涵、核心要义、实践要求，把学习成果转化为奋进新征程、建功新时代的实际行动，奥林学院指导中心在2021年10月9日星期六16:00于奥林学院401举办政治观摩会。为了响应疫情防控要求，除参演人员及工作人员到场外，另有将近300余人在线上一同参加本次活动。为引导广大东林学子深入学习习近平总书记“七一”重要讲话精神为引导广大东林学子深入学习习近平总书记“七一”重要讲话精神为引导广大东林学子深入学习习近平总书记“七一”重要讲话精神
+                            </div>
+                            <div class="date-indicator">
+                                <div class="date-indicator-day">08</div>
+                                <div class="date-indicator-month-year">2021-12</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="article?aid=1" class="title">关于这是一条新闻的通知的新闻</a>
+                        <div class="article-detail-box">
+                            <div class="article-abstract">
+                                为引导广大东林学子深入学习习近平总书记“七一”重要讲话精神，深刻领会和把握讲话的重大意义、丰富内涵、核心要义、实践要求，把学习成果转化为奋进新征程、建功新时代的实际行动
+                            </div>
+                            <div class="date-indicator">
+                                <div class="date-indicator-day">08</div>
+                                <div class="date-indicator-month-year">2021-12</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
