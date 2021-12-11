@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>新闻网管理系统主页</title>
+    <title>新闻管理</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link
       rel="stylesheet"
@@ -69,6 +69,15 @@
         margin-right: 5px;
         margin-top: 10px;
       }
+
+      .mdui-list .list-control-button {
+        margin-left: 10px;
+        color: #666;
+      }
+
+      .mdui-list .red-list-control-button:hover {
+        color: rgb(197, 6, 6);
+      }
     </style>
   </head>
 
@@ -77,16 +86,20 @@
       mdui-appbar-with-toolbar
       mdui-theme-primary-blue-grey
       mdui-drawer-body-left
+      mdui-theme-accent-pink
     "
     id="mdui-title-bar"
   >
     <div class="mdui-appbar mdui-appbar-fixed">
       <div class="mdui-toolbar mdui-color-theme">
-        <a href="javascript:;" class="mdui-btn mdui-btn-icon"
+        <a
+          href="javascript:;"
+          class="mdui-btn mdui-btn-icon"
+          id="drawer-toggle-button"
           ><i class="mdui-icon material-icons">menu</i></a
         >
         <a href="javascript:;" class="mdui-typo-headline">磅礴新闻网管理系统</a>
-        <a href="javascript:;" class="mdui-typo-title">主页</a>
+        <a href="javascript:;" class="mdui-typo-title">新闻管理</a>
         <div class="mdui-toolbar-spacer"></div>
       </div>
     </div>
@@ -137,40 +150,112 @@
     </div>
 
     <div class="content-box">
-      <div class="data-card-box">
-        <div class="data-card">
-          <div class="data-card-title-box">
-            <i class="mdui-list-item-icon mdui-icon material-icons"
-              >fiber_new</i
-            >
-            <span class="data-card-title">新闻总数</span>
+      <div class="tools-bar">
+        <a
+          href="panel/addnews"
+          class="mdui-btn mdui-ripple mdui-color-theme-accent"
+        >
+          添加新闻
+        </a>
+      </div>
+      <div class="mdui-list">
+        <label class="mdui-list-item mdui-ripple">
+          <div class="mdui-checkbox">
+            <input type="checkbox" />
+            <i class="mdui-checkbox-icon"></i>
           </div>
-          <div class="data-card-data-box">23</div>
-          <div class="data-card-info-box">上次发布时间：2021-12-8 12:30</div>
-        </div>
-        <div class="data-card">
-          <div class="data-card-title-box">
-            <i class="mdui-list-item-icon mdui-icon material-icons"
-              >notifications</i
-            >
-            <span class="data-card-title">公告总数</span>
+          <div class="mdui-list-item-content">最新的文章</div>
+          <button
+            class="
+              mdui-btn mdui-btn-icon mdui-ripple
+              list-control-button
+              red-list-control-button
+              delete-button
+            "
+            data-article-index="1"
+          >
+            <i class="mdui-icon material-icons">delete_forever</i>
+          </button>
+          <a
+            href="panel/modnews?aid=1"
+            class="mdui-btn mdui-btn-icon mdui-ripple list-control-button"
+          >
+            <i class="mdui-icon material-icons">mode_edit</i>
+          </a>
+        </label>
+        <label class="mdui-list-item mdui-ripple">
+          <div class="mdui-checkbox">
+            <input type="checkbox" />
+            <i class="mdui-checkbox-icon"></i>
           </div>
-          <div class="data-card-data-box">99</div>
-          <div class="data-card-info-box">上次发布时间：2021-12-8 12:30</div>
-        </div>
-        <div class="data-card">
-          <div class="data-card-title-box">
-            <i class="mdui-list-item-icon mdui-icon material-icons"
-              >person_add</i
-            >
-            <span class="data-card-title">教师总数</span>
+          <div class="mdui-list-item-content">最新的文章</div>
+          <button
+            class="
+              mdui-btn mdui-btn-icon mdui-ripple
+              list-control-button
+              red-list-control-button
+              delete-button
+            "
+            data-article-index="1"
+          >
+            <i class="mdui-icon material-icons">delete_forever</i>
+          </button>
+          <a
+            href="panel/modnews?aid=1"
+            class="mdui-btn mdui-btn-icon mdui-ripple list-control-button"
+          >
+            <i class="mdui-icon material-icons">mode_edit</i>
+          </a>
+        </label>
+        <label class="mdui-list-item mdui-ripple">
+          <div class="mdui-checkbox">
+            <input type="checkbox" />
+            <i class="mdui-checkbox-icon"></i>
           </div>
-          <div class="data-card-data-box">18</div>
-          <div class="data-card-info-box">上次发布时间：2021-12-8 12:30</div>
-        </div>
+          <div class="mdui-list-item-content">最新的文章</div>
+          <button
+            class="
+              mdui-btn mdui-btn-icon mdui-ripple
+              list-control-button
+              red-list-control-button
+              delete-button
+            "
+            data-article-index="1"
+          >
+            <i class="mdui-icon material-icons">delete_forever</i>
+          </button>
+          <a
+            href="panel/modnews?aid=1"
+            class="mdui-btn mdui-btn-icon mdui-ripple list-control-button"
+          >
+            <i class="mdui-icon material-icons">mode_edit</i>
+          </a>
+        </label>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    <script>
+      var $ = mdui.$;
+      var mainDraw = new mdui.Drawer("#main-drawer");
+      $("#drawer-toggle-button").on("click", () => {
+        mainDraw.toggle();
+      });
+      $(".delete-button").on("click", () => {
+        mdui.confirm(
+          "你确认要删除这篇文章吗",
+          "警告",
+          function () {
+            mdui.alert("点击了确认按钮");
+            // fetch(删除的接口)
+          },
+          null,
+          {
+            confirmText: "确认",
+            cancelText: "取消",
+          }
+        );
+      });
+    </script>
   </body>
 </html>

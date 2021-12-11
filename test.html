@@ -1,43 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-
-    .testimg {
-      width: 100%;
-      height: 100px;
-    }
-
-    input {
-      border: none;
-      outline: none;
-    }
-  </style>
-</head>
-
-<body>
-  <img src="images/bgtest.png" alt="" class="testimg" />
-  <!-- <input type="button" value="++" id="test-button" /> -->
-  <button id="test-button">++</button>
-  <img src="images/bgtest.png" alt="" class="testimg1" />
-  <input type="text" name="" id="" class="input-text" />
-  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script>
-    $("#test-button").click(() => {
-      console.log(1);
-      $(".testimg").toggle(1000);
-    });
-  </script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css"
+    />
+  </head>
+  <body>
+    <div id="drawer">
+      222222222222222222222222222222222222222222 22222222222222222222222
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    <script>
+      var $ = mdui.$;
+      var inst = new mdui.Drawer("#drawer");
+    </script>
+  </body>
 </html>
